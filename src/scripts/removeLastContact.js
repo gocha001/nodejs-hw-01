@@ -3,14 +3,14 @@ import { readContacts } from '../utils/readContacts.js';
 
 export const removeLastContact = async () => {
 
-    let contacts = await readContacts();
+    let contacts = await readContacts().catch((error) => console.error(error));
 
     if (!contacts.length) {
         return;
     }
     contacts.pop();
 
-    await writeContacts(contacts);
+    await writeContacts(contacts).catch((error) => console.error(error));
 };
 
 removeLastContact();

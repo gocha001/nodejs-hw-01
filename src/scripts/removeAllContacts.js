@@ -4,7 +4,7 @@ export const removeAllContacts = async () => {
 
     const contacts = [];
 
-    await writeContacts(contacts);
+    await writeContacts(contacts).catch((error) => console.error(error));
 };
 
 removeAllContacts();

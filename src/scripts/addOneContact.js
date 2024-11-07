@@ -4,12 +4,12 @@ import { readContacts } from '../utils/readContacts.js';
 
 const addOneContact = async () => {
 
-    let contacts = await readContacts();
+    let contacts = await readContacts().catch((error) => console.error(error));
 
     const data = await createFakeContact();
     contacts.push(data);
 
-    await writeContacts(contacts);
+    await writeContacts(contacts).catch((error) => console.error(error));
 };
 
 addOneContact();
